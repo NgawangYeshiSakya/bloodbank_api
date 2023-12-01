@@ -28,14 +28,14 @@ namespace BBank.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(string username, string password)
+        public async Task<IActionResult> Login(User user)
         {
-            var user = await _userRepository.Login(username, password);
+            var user_data = await _userRepository.Login(user.Username, user.Password);
             if (user == null)
             {
                 return Unauthorized("Invalid credentials.");
             }
-            return Ok(user);
+            return Ok(user_data);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace BBank
             var path = context.Request.Path.Value;
 
             // Bypass the user key check for the registration route
-            if (!path.StartsWith("/api/Users/register", StringComparison.OrdinalIgnoreCase))
+            if (!path.StartsWith("/api/Users/register", StringComparison.OrdinalIgnoreCase) && !path.StartsWith("/api/Users/login", StringComparison.OrdinalIgnoreCase))
             {
                 var userKey = context.Request.Headers["User-Key"].FirstOrDefault();
                 if (!string.IsNullOrEmpty(userKey) && await userRepository.ValidateUserKeyAsync(userKey))
