@@ -7,5 +7,8 @@ namespace BBank.Repositories.Contracts
         Task<bool> ValidateUserKeyAsync(string userKey);
         Task<User> Register(User user);
         Task<User> Login(string username, string password);
+        Task<bool> Update(User user);
+        Task<User> GetByIdAsync(int id);
+        Task<bool> Delete(int id);
     }
 }
