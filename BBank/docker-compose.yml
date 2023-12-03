@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  bbank:
+    image: ${DOCKER_REGISTRY-}bbank
+    build:
+      context: .
+      dockerfile: BBank/Dockerfile
